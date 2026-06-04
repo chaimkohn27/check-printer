@@ -43,7 +43,7 @@
 </div>
 </div>
 <script>
-const defaults={company:"CKIT LLC",address1:"112 Blauvelt Road",address2:"Monsey NY 10952",bank:"Chase Bank",checkNo:"1005",date:"2026-06-03",payee:"chaim geller",amountInput:"550",memo:"rent",routing:"021000021",account:"2918088355",signature:""};
+const defaults={company:"CKIT LLC",address1:"112 Blauvelt Road",address2:"Monsey NY 10952",bank:"Chase Bank",checkNo:"1005",date:"2026-06-03",payee:"",amountInput:" ",memo:" ",routing:"021000021",account:"2918088355",signature:""};
 const fields=Object.keys(defaults);
 function numberToWords(value){const ones=["","One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","Eleven","Twelve","Thirteen","Fourteen","Fifteen","Sixteen","Seventeen","Eighteen","Nineteen"];const tens=["","","Twenty","Thirty","Forty","Fifty","Sixty","Seventy","Eighty","Ninety"];const scales=["","Thousand","Million","Billion"];const amount=Number(value||0);const dollars=Math.floor(amount);const cents=Math.round((amount-dollars)*100);function underThousand(num){const words=[];if(num>=100){words.push(ones[Math.floor(num/100)]+" Hundred");num%=100}if(num>=20){words.push(tens[Math.floor(num/10)]);num%=10}if(num>0)words.push(ones[num]);return words.join(" ")}if(dollars===0)return"Zero and "+String(cents).padStart(2,"0")+"/100";let num=dollars,scale=0,parts=[];while(num>0){const chunk=num%1000;if(chunk)parts.unshift((underThousand(chunk)+" "+scales[scale]).trim());num=Math.floor(num/1000);scale++}return parts.join(" ")+" and "+String(cents).padStart(2,"0")+"/100"}
 function money(value){return Number(value||0).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})}
